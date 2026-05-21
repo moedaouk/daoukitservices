@@ -1,0 +1,57 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: auto;
+}
+
+/* Section base styles */
+section {
+  position: relative;
+  width: 100%;
+}
+
+/* Pin spacer fix for GSAP */
+.pin-spacer {
+  pointer-events: none;
+}
+
+.pin-spacer > * {
+  pointer-events: auto;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Button hover lift effect */
+button, a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(29, 211, 248, 0.6);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .font-heading {
+    letter-spacing: -0.01em;
+  }
+}
