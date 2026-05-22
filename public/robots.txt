@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daoukitservices.com/sitemap.xml

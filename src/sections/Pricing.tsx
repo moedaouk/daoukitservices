@@ -175,6 +175,7 @@ export default function Pricing() {
 
               {/* CTA */}
               <Button
+                asChild
                 variant={plan.featured ? 'default' : 'outline'}
                 className={`w-full py-5 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5 ${
                   plan.featured
@@ -182,8 +183,10 @@ export default function Pricing() {
                     : 'border-light/20 text-light hover:bg-light/10'
                 }`}
               >
-                {plan.cta}
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <a href={`https://wa.me/96181706156?text=Hello%20Daouk%20IT%20Services%2C%20I%20want%20to%20ask%20about%20pricing%20-%20${encodeURIComponent(plan.name)}%20plan`} target="_blank" rel="noopener noreferrer">
+                  {plan.cta}
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
               </Button>
             </div>
           ))}
@@ -195,10 +198,13 @@ export default function Pricing() {
             Need something custom?
           </p>
           <Button
+            asChild
             variant="outline"
             className="border-cyan/50 text-cyan hover:bg-cyan/10 rounded-xl"
           >
-            Let's talk
+            <a href="https://wa.me/96181706156?text=Hello%20Daouk%20IT%20Services%2C%20I%20want%20to%20ask%20about%20pricing" target="_blank" rel="noopener noreferrer">
+              Let's talk
+            </a>
           </Button>
         </div>
       </div>

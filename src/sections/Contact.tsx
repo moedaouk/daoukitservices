@@ -11,7 +11,7 @@ const contactInfo = [
     icon: Phone,
     label: 'Call or WhatsApp',
     value: '+961 81 706 156',
-    href: 'https://wa.me/+96181706156',
+    href: 'https://wa.me/96181706156?text=Hello%20Daouk%20IT%20Services%2C%20I%20want%20to%20contact%20you',
   },
   {
     icon: Mail,
@@ -126,11 +126,14 @@ export default function Contact() {
         {/* CTA Button */}
         <div ref={ctaRef} className="flex justify-center mb-16">
           <Button
+            asChild
             size="lg"
             className="bg-cyan text-dark font-semibold px-10 py-7 text-lg rounded-xl hover:bg-cyan-light transition-all duration-300 hover:-translate-y-0.5 glow-cyan-strong"
           >
-            Book a free call
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <a href="https://wa.me/96181706156?text=Hello%20Daouk%20IT%20Services%2C%20I%20want%20to%20book%20a%20free%20consultation" target="_blank" rel="noopener noreferrer">
+              Book a free call
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
           </Button>
         </div>
 

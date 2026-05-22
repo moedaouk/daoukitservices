@@ -89,10 +89,13 @@ export default function Navigation() {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Button
+                asChild
                 variant="outline"
                 className="border-cyan/50 text-cyan hover:bg-cyan/10 rounded-xl text-sm"
               >
-                Book a call
+                <a href="https://wa.me/96181706156?text=Hello%20Daouk%20IT%20Services%2C%20I%20want%20to%20book%20a%20free%20consultation" target="_blank" rel="noopener noreferrer">
+                  Book a call
+                </a>
               </Button>
             </div>
 
@@ -137,9 +140,12 @@ export default function Navigation() {
             </button>
           ))}
           <Button
+            asChild
             className="mt-4 bg-cyan text-dark font-semibold px-8 py-5 rounded-xl"
           >
-            Book a call
+            <a href="https://wa.me/96181706156?text=Hello%20Daouk%20IT%20Services%2C%20I%20want%20to%20book%20a%20free%20consultation" target="_blank" rel="noopener noreferrer">
+              Book a call
+            </a>
           </Button>
         </div>
       </div>

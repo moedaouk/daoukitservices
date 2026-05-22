@@ -148,11 +148,14 @@ export default function ServiceTelephony() {
         {/* CTA */}
         <div ref={ctaRef}>
           <Button
+            asChild
             size="lg"
             className="bg-cyan text-dark font-semibold px-8 py-6 text-base rounded-xl hover:bg-cyan-light transition-all duration-300 hover:-translate-y-0.5 glow-cyan"
           >
-            Talk to an expert
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <a href="https://wa.me/96181706156?text=Hello%20Daouk%20IT%20Services%2C%20I%20want%20to%20talk%20to%20an%20expert" target="_blank" rel="noopener noreferrer">
+              Talk to an expert
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
           </Button>
         </div>
       </div>
