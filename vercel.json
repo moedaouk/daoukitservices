@@ -1,0 +1,9 @@
+{
+  "framework": null,
+  "installCommand": "echo no-install",
+  "buildCommand": "mkdir -p dist && cp -r index.html robots.txt sitemap.xml static dist/",
+  "outputDirectory": "dist",
+  "headers": [
+    { "source": "/static/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }
+  ]
+}
