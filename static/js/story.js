@@ -279,6 +279,21 @@
     });
   });
 
+  // report every WhatsApp tap to the team (handled by /api/click on Vercel)
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+    if (!a) return;
+    var sec = a.closest("section, header, .wa-float");
+    var where = sec ? (sec.id || (sec.classList.contains("wa-float") ? "floating button" : sec.tagName.toLowerCase())) : "";
+    var label = (a.getAttribute("aria-label") || a.textContent || "").replace(/\s+/g, " ").replace("→", "").trim();
+    var data = JSON.stringify({ label: (label || "WhatsApp") + (where ? " · " + where : ""), page: location.pathname + location.hash });
+    try {
+      if (!(navigator.sendBeacon && navigator.sendBeacon("/api/click", new Blob([data], { type: "application/json" })))) {
+        fetch("/api/click", { method: "POST", body: data, headers: { "Content-Type": "application/json" }, keepalive: true });
+      }
+    } catch (err) { /* never block the WhatsApp link */ }
+  }, true);
+
   window.addEventListener("resize", resize);
   resize();
   requestAnimationFrame(frame);
