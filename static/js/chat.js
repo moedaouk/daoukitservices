@@ -284,5 +284,31 @@
     open(text, label + (where ? " · " + where : ""));
   });
 
+  // hardware cards: tap to ask for a quote on that item
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-ask]");
+    if (!b) return;
+    open(b.getAttribute("data-ask"), "Hardware · " + (b.querySelector(".hw-model") || b).textContent.trim());
+    try { navigator.sendBeacon && navigator.sendBeacon("/api/click", new Blob([JSON.stringify({ label: "Quote request · " + (b.querySelector(".hw-model") || b).textContent.trim() })], { type: "application/json" })); } catch (err) {}
+  });
+
+  // hardware tabs
+  document.querySelectorAll(".hw-tab").forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      var cat = tab.getAttribute("data-cat");
+      document.querySelectorAll(".hw-tab").forEach(function (x) { x.classList.toggle("on", x === tab); });
+      document.querySelectorAll(".hw").forEach(function (card) {
+        var show = cat === "all" || card.getAttribute("data-cat") === cat;
+        card.hidden = !show;
+        if (show) card.classList.add("in");
+      });
+    });
+  });
+
+  // the round chat button only appears after the first screen
+  function pastHero() { document.documentElement.classList.toggle("past-hero", window.scrollY > window.innerHeight * 0.6); }
+  window.addEventListener("scroll", pastHero, { passive: true });
+  pastHero();
+
   window.DaoukChat = { open: open };
 })();
